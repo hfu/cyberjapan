@@ -4,7 +4,7 @@
 map = (function () {
     'use strict';
 
-    var map_start_location = [40.70531887544228, -74.00976419448853, 15]; // NYC
+    var map_start_location = [35.6900, 139.6920, 18]; // 東京 (Tokyo)
 
     /*** URL parsing ***/
 

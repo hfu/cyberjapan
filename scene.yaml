@@ -6,46 +6,46 @@ sources:
     osm:
         type: TopoJSON
         url:  //vector.mapzen.com/osm/all/{z}/{x}/{y}.topojson?api_key=vector-tiles-HqUVidw
-    # rdcl:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_rdcl/{z}/{x}/{y}.geojson'
-    #     max_zoom: 16
-    # railcl:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_railcl/{z}/{x}/{y}.geojson'
-    #     max_zoom: 16
-    # rvrcl:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_rvrcl/{z}/{x}/{y}.geojson'
-    #     max_zoom: 16
-    # anno:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_anno/{z}/{x}/{y}.geojson'
-    #     max_zoom: 15
+    rdcl:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/experimental_rdcl/{z}/{x}/{y}.geojson'
+        max_zoom: 16
+    railcl:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/experimental_railcl/{z}/{x}/{y}.geojson'
+        max_zoom: 16
+    rvrcl:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/experimental_rvrcl/{z}/{x}/{y}.geojson'
+        max_zoom: 16
+    anno:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/experimental_anno/{z}/{x}/{y}.geojson'
+        max_zoom: 15
     fgd:
         type: GeoJSON
         url: '//cyberjapandata.gsi.go.jp/xyz/experimental_fgd/{z}/{x}/{y}.geojson'
         max_zoom: 18
-    # dem5a:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_dem5a/{z}/{x}/{y}.geojson'
-    #     max_zoom: 16
-    # dem10b:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_dem10b/{z}/{x}/{y}.geojson'
-    #     max_zoom: 16
-    # cp:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/cp/{z}/{x}/{y}.geojson'
-    #     max_zoom: 16
-    # pp:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/pp/{z}/{x}/{y}.geojson'
-    #     max_zoom: 16
-    # zk25000:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/zk25000/{z}/{x}/{y}.geojson'
-    #     max_zoom: 8
+    dem5a:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/experimental_dem5a/{z}/{x}/{y}.geojson'
+        max_zoom: 16
+    dem10b:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/experimental_dem10b/{z}/{x}/{y}.geojson'
+        max_zoom: 16
+    cp:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/cp/{z}/{x}/{y}.geojson'
+        max_zoom: 16
+    pp:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/pp/{z}/{x}/{y}.geojson'
+        max_zoom: 16
+    zk25000:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/zk25000/{z}/{x}/{y}.geojson'
+        max_zoom: 8
 
 layers:
     # osm-roads:
@@ -69,8 +69,8 @@ layers:
             draw:
                 lines:
                     order: 3
-                    color: lightblue
-                    width: 6px
+                    color: LightSkyBlue
+                    width: 3px
 
     earth:
         data: {source: osm}
@@ -79,27 +79,27 @@ layers:
             lines:
                 order: 3
                 color: LightSkyBlue 
-                width: 6px
+                width: 3px
 
-    # zk25000:
-    #     data: {source: zk25000}
-    #     # visible: false
-    #     filter:
-    #         $zoom: { min: 8 }
-    #     draw:
-    #         points:
-    #             order: 1
-    #             color: red
-    #             size: 4px
-    #         text:
-    #             order: 10
-    #             text_source: 図名
-    #             offset: [0, -13]
-    #             font:
-    #                 # size: 12pt
-    #                 # family: Arial
-    #                 fill: black
-    #                 # stroke: { color: white, width: 2 }
+    zk25000:
+        data: {source: zk25000}
+        # visible: false
+        filter:
+            $zoom: { min: 8 }
+        draw:
+            points:
+                order: 1
+                color: red
+                size: 4px
+            text:
+                order: 10
+                text_source: 図名
+                offset: [0, -13]
+                font:
+                    # size: 12pt
+                    # family: Arial
+                    fill: black
+                    # stroke: { color: white, width: 2 }
 
     rdcl:
         data: {source: rdcl}
@@ -108,7 +108,7 @@ layers:
             lines:
                 order: 4
                 color: red
-                width: 2px
+                width: 1px
     railcl:
         data: {source: railcl}
         # visible: false
@@ -116,7 +116,7 @@ layers:
             lines:
                 order: 5
                 color: purple
-                width: 6px
+                width: 3px
     rvrcl:
         data: {source: rvrcl}
         # visible: false
@@ -124,7 +124,7 @@ layers:
             lines:
                 order: 6
                 color: green
-                width: 6px
+                width: 4px
     anno:
         data: {source: anno}
         # visible: false
@@ -141,68 +141,68 @@ layers:
                     fill: black
     fgd:
         data: {source: fgd}
-        # draw:
-        #     lines:
-        #         order: 5
-        #         color: orange # default color
-        #         width: 2px
-        # buildings:
-        #     filter:
-        #         class: BldL
-        #     draw:
-        #         lines:
-        #             order: 7
-        #             color: gray
-        # roadedge:
-        #     filter:
-        #         class: RdEdg
-        #     draw:
-        #         lines:
-        #             order: 6
-        #             color: "#7B68EE"
-        #             width: 2px
-        # roadCompt:
-        #     filter:
-        #         class: RdCompt
-        #     draw:
-        #         lines:
-        #             order: 7
-        #             width: 10px
-        #             color: "#7B68EE"
-        # waterline:
-        #     filter:
-        #         class: WL
-        #     draw:
-        #         lines:
-        #             order: 6
-        #             width: 4px
-        #             color: blue
-        # coastline:
-        #     filter:
-        #         class: Cstline
-        #     draw:
-        #         lines:
-        #             order: 6
-        #             width: 3px
-        #             color: blue
-        # adminboundary:
-        #     filter:
-        #         class: AdmBdry
-        #     draw:
-        #         lines:
-        #             order: 6
-        #             width: 3px
-        #             color: darkblue
-        # contours:
-        #     filter:
-        #         class: Cntr
-        #     draw:
-        #         lines:
-        #             order: 4
-        #             color: "#3CB371"
-        #         text:
-        #             text_source: alti
-        #             order: 10
-        #             offset: [0, 5]
-        #             font:
-        #                 fill: black
+        draw:
+            lines:
+                order: 5
+                color: orange # default color
+                width: 2px
+        buildings:
+            filter:
+                class: BldL
+            draw:
+                lines:
+                    order: 7
+                    color: gray
+        roadedge:
+            filter:
+                class: RdEdg
+            draw:
+                lines:
+                    order: 6
+                    color: "#7B68EE"
+                    width: 2px
+        roadCompt:
+            filter:
+                class: RdCompt
+            draw:
+                lines:
+                    order: 7
+                    width: 4px
+                    color: "#7B68EE"
+        waterline:
+            filter:
+                class: WL
+            draw:
+                lines:
+                    order: 6
+                    width: 4px
+                    color: blue
+        coastline:
+            filter:
+                class: Cstline
+            draw:
+                lines:
+                    order: 6
+                    width: 3px
+                    color: blue
+        adminboundary:
+            filter:
+                class: AdmBdry
+            draw:
+                lines:
+                    order: 6
+                    width: 3px
+                    color: darkblue
+        contours:
+            filter:
+                class: Cntr
+            draw:
+                lines:
+                    order: 4
+                    color: "#3CB371"
+                text:
+                    text_source: alti
+                    order: 10
+                    offset: [0, 5]
+                    font:
+                        fill: black
