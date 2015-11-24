@@ -26,26 +26,26 @@ sources:
         type: GeoJSON
         url: '//cyberjapandata.gsi.go.jp/xyz/experimental_fgd/{z}/{x}/{y}.geojson'
         max_zoom: 18
-    dem5a:
-        type: GeoJSON
-        url: '//cyberjapandata.gsi.go.jp/xyz/experimental_dem5a/{z}/{x}/{y}.geojson'
-        max_zoom: 16
-    dem10b:
-        type: GeoJSON
-        url: '//cyberjapandata.gsi.go.jp/xyz/experimental_dem10b/{z}/{x}/{y}.geojson'
-        max_zoom: 16
-    cp:
-        type: GeoJSON
-        url: '//cyberjapandata.gsi.go.jp/xyz/cp/{z}/{x}/{y}.geojson'
-        max_zoom: 16
-    pp:
-        type: GeoJSON
-        url: '//cyberjapandata.gsi.go.jp/xyz/pp/{z}/{x}/{y}.geojson'
-        max_zoom: 16
-    zk25000:
-        type: GeoJSON
-        url: '//cyberjapandata.gsi.go.jp/xyz/zk25000/{z}/{x}/{y}.geojson'
-        max_zoom: 8
+    # dem5a:
+    #     type: GeoJSON
+    #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_dem5a/{z}/{x}/{y}.geojson'
+    #     max_zoom: 16
+    # dem10b:
+    #     type: GeoJSON
+    #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_dem10b/{z}/{x}/{y}.geojson'
+    #     max_zoom: 16
+    # cp:
+    #     type: GeoJSON
+    #     url: '//cyberjapandata.gsi.go.jp/xyz/cp/{z}/{x}/{y}.geojson'
+    #     max_zoom: 16
+    # pp:
+    #     type: GeoJSON
+    #     url: '//cyberjapandata.gsi.go.jp/xyz/pp/{z}/{x}/{y}.geojson'
+    #     max_zoom: 16
+    # zk25000:
+    #     type: GeoJSON
+    #     url: '//cyberjapandata.gsi.go.jp/xyz/zk25000/{z}/{x}/{y}.geojson'
+    #     max_zoom: 8
 
 layers:
     # osm-roads:
