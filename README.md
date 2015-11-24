@@ -1,8 +1,8 @@
-# generic-demo
+# cyberjapan
 
-A generic [Tangram](http://github.com/tangrams/tangram) setup for [Mapzen](http://github.com/mapzen) maps.
+A [Tangram](http://github.com/tangrams/tangram) map based on a dataset from the Geospatial Information Authority of Japan: https://github.com/gsi-cyberjapan/vector-tile-experiment/blob/gh-pages/README_en.md.
 
-Live demo: http://tangrams.github.io/generic-demo
+Live demo: http://meetar.github.io/cyberjapan
 
 ### To run locally:
 
