@@ -1,22 +1,11 @@
-cameras:
-  camera1:
-    type: isometric
-
-lights:
-  light1:
-    type: directional
-    diffuse: 1
-    ambient: .4
-
 scene:
-  background:
-    color: '#BED2FF'
+    background:
+       color: '#BED2FF'
 
 sources:
-  # vectiles:
-  #   type: GeoJSONTiles
-  #   url: '//gsi-cyberjapan.github.io/vectiles-mapkit/out/{z}/{x}/{y}.geojson'
-    # max_zoom: 8
+    osm:
+        type: TopoJSON
+        url:  //vector.mapzen.com/osm/all/{z}/{x}/{y}.topojson?api_key=vector-tiles-HqUVidw
     # rdcl:
     #     type: GeoJSON
     #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_rdcl/{z}/{x}/{y}.geojson'
@@ -33,10 +22,10 @@ sources:
     #     type: GeoJSON
     #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_anno/{z}/{x}/{y}.geojson'
     #     max_zoom: 15
-    # fgd:
-    #     type: GeoJSON
-    #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_fgd/{z}/{x}/{y}.geojson'
-    #     max_zoom: 18
+    fgd:
+        type: GeoJSON
+        url: '//cyberjapandata.gsi.go.jp/xyz/experimental_fgd/{z}/{x}/{y}.geojson'
+        max_zoom: 18
     # dem5a:
     #     type: GeoJSON
     #     url: '//cyberjapandata.gsi.go.jp/xyz/experimental_dem5a/{z}/{x}/{y}.geojson'
@@ -53,19 +42,13 @@ sources:
     #     type: GeoJSON
     #     url: '//cyberjapandata.gsi.go.jp/xyz/pp/{z}/{x}/{y}.geojson'
     #     max_zoom: 16
-    zk25000:
-        type: GeoJSON
-        url: '//cyberjapandata.gsi.go.jp/xyz/zk25000/{z}/{x}/{y}.geojson'
-        max_zoom: 8
-
-  # uncomment to see labels and buildings
-    osm:
-        type: TopoJSON
-        url:  //vector.mapzen.com/osm/all/{z}/{x}/{y}.topojson?api_key=vector-tiles-HqUVidw
-        max_zoom: 10
+    # zk25000:
+    #     type: GeoJSON
+    #     url: '//cyberjapandata.gsi.go.jp/xyz/zk25000/{z}/{x}/{y}.geojson'
+    #     max_zoom: 8
 
 layers:
-  # osm-roads:
+    # osm-roads:
     boundaries:
         data: {source: osm}
         # visible: false
@@ -74,20 +57,35 @@ layers:
                 order: 0
                 color: blue
                 width: 1px
-    coastlines:
+    water:
+        data: {source: osm}
+        # visible: false
+        draw:
+            polygons:
+                order: 2
+                color: lightblue
+        riverbanks:
+            filter: {not: {kind: [ocean, river] } }
+            draw:
+                lines:
+                    order: 3
+                    color: lightblue
+                    width: 6px
+
+    earth:
         data: {source: osm}
         # visible: false
         draw:
             lines:
-                order: 0
-                color: blue
-                width: 3px
+                order: 3
+                color: LightSkyBlue 
+                width: 6px
 
     # zk25000:
     #     data: {source: zk25000}
-    #     visible: false
-    #     # filter:
-    #     #     $zoom: { min: 16 }
+    #     # visible: false
+    #     filter:
+    #         $zoom: { min: 8 }
     #     draw:
     #         points:
     #             order: 1
@@ -95,90 +93,116 @@ layers:
     #             size: 4px
     #         text:
     #             order: 10
-    #             text_source: nam
+    #             text_source: 図名
+    #             offset: [0, -13]
     #             font:
-    #                 typeface: bold 8pt Courier
+    #                 # size: 12pt
+    #                 # family: Arial
     #                 fill: black
-    #                 stroke: { color: white, width: 2 }
-  #   coastline:
-  #     filter: { f_code_des: Coastline/Shoreline }
-  #     draw:
-  #       lines:
-  #         order: 0
-  #         color: '#5F92A3'
-  #         width: 9px
-  #   admin:
-  #     filter: { f_code_des: Administrative Area }
-  #     draw:
-  #       polygons:
-  #         order: 1
-  #         color: '#ffffff'
-  #       lines:
-  #         order: 2
-  #         color: blue
-  #         width: 3px
-  #   water:
-  #     filter: { f_code_des: Inland Water }
-  #     draw:
-  #       polygons:
-  #         order: 1
-  #         color: '#B0C3EC'
-  #       lines:
-  #         order: 2
-  #         color: purple
-  #         width: 3px
-  #   builtup:
-  #     filter: { f_code_des: Built-Up Area }
-  #     draw:
-  #       polygons:
-  #         order: 2
-  #         color: lightgrey
-  #       lines:
-  #         order: 2
-  #         color: darkgrey
-  #         width: 3px
-  #   roads:
-  #     filter: { f_code_des: Road }
-  #     draw:
-  #       lines:
-  #         order: 3
-  #         color: '#999'
-  #         width: 3px
-  #   tunnel:
-  #     filter: { f_code_des: Tunnel }
-  #     draw:
-  #       lines:
-  #         order: 4
-  #         color: '#F9867B'
-  #         width: 3px
-  #   rail:
-  #     filter: { f_code_des: Railroad }
-  #     draw:
-  #       lines:
-  #         order: 5
-  #         color: black
-  #         width: 3px
+    #                 # stroke: { color: white, width: 2 }
 
-  # buildings:
-  #   data: { source: osm, layer: buildings }
-  #   draw:
-  #     polygons:
-  #       order: 6
-  #       extrude: true
-  #       color: red
-  # roadlabels:
-  #   data: { source: osm, layer: roads }
-  #   draw:
-  #     text:
-  #       font:
-  #         typeface: bold 8pt Courier
-  #         fill: black
-  #         stroke: { color: white, width: 2 }
-  # placelabels:
-  #   data: { source: osm, layer: places }
-  #   draw:
-  #     text:
-  #       font:
-  #         typeface: bold 14pt Courier
-  #         fill: black
-  #         stroke: { color: white, width: 2 }
+    rdcl:
+        data: {source: rdcl}
+        # visible: false
+        draw:
+            lines:
+                order: 4
+                color: red
+                width: 2px
+    railcl:
+        data: {source: railcl}
+        # visible: false
+        draw:
+            lines:
+                order: 5
+                color: purple
+                width: 6px
+    rvrcl:
+        data: {source: rvrcl}
+        # visible: false
+        draw:
+            lines:
+                order: 6
+                color: green
+                width: 6px
+    anno:
+        data: {source: anno}
+        # visible: false
+        draw:
+            points:
+                order: 7
+                color: green
+                size: 16px
+            text:
+                order: 10
+                text_source: knj
+                offset: [0, -13]
+                font:
+                    fill: black
+    fgd:
+        data: {source: fgd}
+        # draw:
+        #     lines:
+        #         order: 5
+        #         color: orange # default color
+        #         width: 2px
+        # buildings:
+        #     filter:
+        #         class: BldL
+        #     draw:
+        #         lines:
+        #             order: 7
+        #             color: gray
+        # roadedge:
+        #     filter:
+        #         class: RdEdg
+        #     draw:
+        #         lines:
+        #             order: 6
+        #             color: "#7B68EE"
+        #             width: 2px
+        # roadCompt:
+        #     filter:
+        #         class: RdCompt
+        #     draw:
+        #         lines:
+        #             order: 7
+        #             width: 10px
+        #             color: "#7B68EE"
+        # waterline:
+        #     filter:
+        #         class: WL
+        #     draw:
+        #         lines:
+        #             order: 6
+        #             width: 4px
+        #             color: blue
+        # coastline:
+        #     filter:
+        #         class: Cstline
+        #     draw:
+        #         lines:
+        #             order: 6
+        #             width: 3px
+        #             color: blue
+        # adminboundary:
+        #     filter:
+        #         class: AdmBdry
+        #     draw:
+        #         lines:
+        #             order: 6
+        #             width: 3px
+        #             color: darkblue
+        # contours:
+        #     filter:
+        #         class: Cntr
+        #     draw:
+        #         lines:
+        #             order: 4
+        #             color: "#3CB371"
+        #         text:
+        #             text_source: alti
+        #             order: 10
+        #             offset: [0, 5]
+        #             font:
+        #                 fill: black
