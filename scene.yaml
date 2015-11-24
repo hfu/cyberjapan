@@ -108,7 +108,13 @@ layers:
             lines:
                 order: 4
                 color: red
-                width: 1px
+                width: 2px
+        path:
+            filter: {type: 庭園路}
+            draw:
+                lines:
+                    color: orange
+                    width: 1px
     railcl:
         data: {source: railcl}
         # visible: false
@@ -138,6 +144,7 @@ layers:
                 text_source: knj
                 offset: [0, -13]
                 font:
+                    size: 12pt
                     fill: black
     fgd:
         data: {source: fgd}
@@ -205,4 +212,5 @@ layers:
                     order: 10
                     offset: [0, 5]
                     font:
+                        size: 12pt
                         fill: black
