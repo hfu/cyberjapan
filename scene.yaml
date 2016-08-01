@@ -146,8 +146,7 @@ layers:
                 priority: 3
                 font:
                     size: 12pt
-                    fill: black
-                    stroke: { color: black, width: 4 }
+                    stroke: { color: black, width: 1 }
     fgd:
         data: {source: fgd}
         draw:
