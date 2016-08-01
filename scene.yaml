@@ -143,9 +143,11 @@ layers:
                 order: 10
                 text_source: knj
                 offset: [0, -13]
+                priority: 3
                 font:
                     size: 12pt
                     fill: black
+                    stroke: { color: black, width: 4 }
     fgd:
         data: {source: fgd}
         draw:
