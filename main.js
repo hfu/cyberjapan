@@ -1,3 +1,6 @@
+/*jslint browser: true*/
+/*global Tangram, gui */
+
 map = (function () {
     'use strict';
     var map_start_location = [35.6900, 139.6920, 18]; // 東京 (Tokyo)
