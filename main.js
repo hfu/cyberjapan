@@ -1,6 +1,6 @@
 map = (function () {
     'use strict';
-    var map_start_location = [139.6920, 35.6900, 18]; // 東京 (Tokyo)
+    var map_start_location = [35.6900, 139.6920, 18]; // 東京 (Tokyo)
     var url_hash = window.location.hash.slice(1, window.location.hash.length).split('/');
     if (url_hash.length == 3) {
         map_start_location = [url_hash[1],url_hash[2], url_hash[0]];
@@ -9,7 +9,7 @@ map = (function () {
     var map = L.map('map', {"keyboardZoomOffset" : .05});
     var layer = Tangram.leafletLayer({
         scene: 'scene.yaml',
-        attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors, <a href="http://www.gsi.go.jp/">GSI</a> | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
+        attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors, <a target="_blank" href="http://www.gsi.go.jp/">GSI</a> | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
     });
     window.layer = layer;
     var scene = layer.scene;
